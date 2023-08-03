@@ -6,7 +6,7 @@ const Comment=require('./models/Comments')
 
 const connection=require('./config/database')
 
-const PORT=3000;
+const {PORT}=require('./config/serverConfig');
 
 app.listen(PORT,async()=>{
     console.log('Server is Running at PORT',PORT)   
@@ -17,11 +17,11 @@ app.listen(PORT,async()=>{
     // // const tweeter=await tweet.findById('64cb80abd042351130693f84')
     // console.log(tweeter)
 
-    const tweetRepo=new TweetRepository();
-    const tweet = await tweetRepo.create({content:'New tweet here'})
-    const comment=await Comment.create({content:'doing other Comment'})
-    tweet.comments.push(comment)
-    await tweet.save()
-    console.log(tweet);
+    // const tweetRepo=new TweetRepository();
+    // const tweet = await tweetRepo.create({content:'New tweet here'})
+    // const comment=await Comment.create({content:'doing other Comment'})
+    // tweet.comments.push(comment)
+    // await tweet.save()
+    // console.log(tweet);
   
 })
