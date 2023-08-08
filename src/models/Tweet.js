@@ -6,17 +6,12 @@ const TweetSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
-    userEmail:{
-        type:String,
-        unique:true,
-    },
-    comments:[
-      { 
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Comment'
-      }
-    ]
+     
+     hashtag:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Hashtag'
+     }
 },{timestamps:true})
 
-const Tweet=mongoose.model('tweet',TweetSchema)
+const Tweet=mongoose.model('Tweet',TweetSchema)
 module.exports=Tweet;

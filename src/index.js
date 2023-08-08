@@ -17,11 +17,12 @@ app.listen(PORT,async()=>{
     // // const tweeter=await tweet.findById('64cb80abd042351130693f84')
     // console.log(tweeter)
 
-    // const tweetRepo=new TweetRepository();
+    const tweetRepo=new TweetRepository();
     // const tweet = await tweetRepo.create({content:'New tweet here'})
     // const comment=await Comment.create({content:'doing other Comment'})
     // tweet.comments.push(comment)
     // await tweet.save()
-    // console.log(tweet);
+    const tweet=await tweetRepo.getAll(1,4)
+    console.log(tweet);
   
 })
