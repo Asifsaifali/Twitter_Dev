@@ -1,7 +1,7 @@
 const express= require('express')
 const app=express();
 
-const TweetRepository= require('./repository/twitter-repository')
+const TweetRepository= require('./repository/tweet-repository')
 const Comment=require('./models/Comments')
 
 const connection=require('./config/database')
@@ -17,12 +17,12 @@ app.listen(PORT,async()=>{
     // // const tweeter=await tweet.findById('64cb80abd042351130693f84')
     // console.log(tweeter)
 
-    const tweetRepo=new TweetRepository();
-    // const tweet = await tweetRepo.create({content:'New tweet here'})
-    // const comment=await Comment.create({content:'doing other Comment'})
-    // tweet.comments.push(comment)
-    // await tweet.save()
-    const tweet=await tweetRepo.getAll(1,4)
-    console.log(tweet);
+    // const tweetRepo=new TweetRepository();
+    // // const tweet = await tweetRepo.create({content:'New tweet here'})
+    // // const comment=await Comment.create({content:'doing other Comment'})
+    // // tweet.comments.push(comment)
+    // // await tweet.save()
+    // const tweet=await tweetRepo.getAll(1,4)
+    // console.log(tweet);
   
 })
