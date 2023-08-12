@@ -1,8 +1,8 @@
 const express= require('express')
 const app=express();
 
-const TweetRepository= require('./repository/tweet-repository')
-const Comment=require('./models/Comments')
+const HashtagRepository=require('./repository/hashtag-repository')
+const TweetService=require('./services/tweet-service')
 
 const connection=require('./config/database')
 
@@ -13,16 +13,11 @@ app.listen(PORT,async()=>{
     await connection(); 
     console.log("Mongodb Connected")
 
-    // const tweeter=await Tweet.find({userEmail:'asif@gmail.com'})
-    // // const tweeter=await tweet.findById('64cb80abd042351130693f84')
-    // console.log(tweeter)
 
-    // const tweetRepo=new TweetRepository();
-    // // const tweet = await tweetRepo.create({content:'New tweet here'})
-    // // const comment=await Comment.create({content:'doing other Comment'})
-    // // tweet.comments.push(comment)
-    // // await tweet.save()
-    // const tweet=await tweetRepo.getAll(1,4)
-    // console.log(tweet);
+    // const repo=new TweetService();
+    // const response=await repo.create({content:'My first #New #Tweet of the #first day'})
+    // const repo=new HashtagRepository();
+    // let response=await repo.find()
+    // console.log(response)
   
 })
