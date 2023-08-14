@@ -1,23 +1,20 @@
-const express= require('express')
+import express from "express"
 const app=express();
+import TweetService from './services/tweet-service.js'
 
-const HashtagRepository=require('./repository/hashtag-repository')
-const TweetService=require('./services/tweet-service')
+import connection from './config/database.js'
+// import { PORT } from './config/serverConfig.js'
 
-const connection=require('./config/database')
-
-const {PORT}=require('./config/serverConfig');
-
-app.listen(PORT,async()=>{
-    console.log('Server is Running at PORT',PORT)   
+app.listen(3000,async()=>{
+    console.log('Server is Running 3000 PORT',)   
     await connection(); 
     console.log("Mongodb Connected")
 
 
-    // const repo=new TweetService();
-    // const response=await repo.create({content:'My first #New #Tweet of the #first day'})
+    const repo=new TweetService();
+    const response=await repo.create({content:'My Other #Tweet of the #Second day'})
+    console.log(response)
     // const repo=new HashtagRepository();
     // let response=await repo.find()
-    // console.log(response)
   
 })

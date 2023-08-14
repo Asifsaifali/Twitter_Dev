@@ -1,4 +1,4 @@
-const Hashtag=require('../models/Hashtag')
+import Hashtag from '../models/Hashtag.js'
 
 class HashtagRepository{
 
@@ -51,4 +51,4 @@ class HashtagRepository{
       }
 }
 
-module.exports=HashtagRepository
+export default HashtagRepository;
