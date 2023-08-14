@@ -12,7 +12,7 @@ app.listen(3000,async()=>{
 
 
     const repo=new TweetService();
-    const response=await repo.create({content:'My Other #Tweet of the #Second day'})
+    const response=await repo.create({content:'Second Tweet of the #Day #FIRST'})
     console.log(response)
     // const repo=new HashtagRepository();
     // let response=await repo.find()
