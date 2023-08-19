@@ -1,20 +1,24 @@
 import express from "express"
 const app=express();
-import TweetService from './services/tweet-service.js'
-
+import Routes from './routes/index.js'
 import connection from './config/database.js'
-// import { PORT } from './config/serverConfig.js'
+// import bodyParser from "body-parser";
+import bodyParser from "body-parser";
+import TweetService from "./services/tweet-service.js";
 
-app.listen(3000,async()=>{
-    console.log('Server is Running 3000 PORT',)   
+app.use('/api',Routes);
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+
+const PORT=3000
+
+app.listen(PORT,async()=>{
+    console.log('Server is Running PORT',PORT)   
     await connection(); 
     console.log("Mongodb Connected")
-
-
-    const repo=new TweetService();
-    const response=await repo.create({content:'Second Tweet of the #Day #FIRST'})
-    console.log(response)
-    // const repo=new HashtagRepository();
-    // let response=await repo.find()
-  
+//   const tweetService=new TweetService();
+//   const resp=await tweetService.create({content:"This is #Tweet from tody"})
+//   console.log(resp);
 })
